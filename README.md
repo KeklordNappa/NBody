@@ -1,11 +1,13 @@
 # NBody
+A 64-bit precision N-body simulation built in Godot .NET (C#), incorporating First-Order Post-Newtonian ($1\text{PN}$) relativistic corrections via the Einstein–Infeld–Hoffmann (EIH) equations.
 
-A basic N-Body simulation with attempted correction to 1PN using Einstein-Infeld-Hoffmann equations.
+## Physics & Architecture
+All physics calculations run in C# using custom 64-bit `double` vectors (`AU`, `days`, and `Solar Masses`) and a zero-allocation 4th-order Runge-Kutta (`RK4`) integrator before scaling down to Godot's 32-bit scene graph for rendering.
 
+The `main` branch uses an $`O(N^2)`$ two-pass formulation that caches Newtonian potentials and accelerations to approximate three-body cross-terms. This prioritizes performance while remaining accurate for most planetary systems. A separate branch will implement the unapproximated $`O(N^3)`$ EIH equations to provide better accuracy for arbitrary, comparable-mass multi-body systems (such as triple-star or compact binary setups).
 
-Currently the calculation uses algebraic simplifications that cause deviation from real mechanics in favor of computational speed. Most notably, the term \[-(Gm\_cr\_AB^2) / 2r\_BC^3] is omitted completely from calculation. Complexity of the main branch solver algorithm is O(N^2). I will publish a branch with more exact calculations that should result in a complexity of O(N^3), but with a higher degree of accuracy for arbitrary N-Body systems.
-
-
-
-I will also add runtime simulation control and visual clarity features moving forward.
-
+## Roadmap
+* Runtime simulation controls (time-warp scaling, pause/step, and system presets).
+* Visual clarity improvements (3D orbital trail rendering and scaled body visibility).
+* Orbital telemetry HUD to track perihelion precession.
+* Custom simulation editing.
