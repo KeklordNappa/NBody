@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chgwriutul1pp" path="res://Objects/Body.cs" id="1_py6h7"]
 [ext_resource type="Resource" uid="uid://22dvd20ltq0v" path="res://Objects/R_Body.tres" id="2_06iwy"]
+[ext_resource type="Script" uid="uid://60gypww05rx" path="res://Objects/OrbitTrail3D.cs" id="3_00kyd"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_p23m3"]
 
@@ -11,8 +12,13 @@
 mesh = SubResource("SphereMesh_p23m3")
 script = ExtResource("1_py6h7")
 Res = ExtResource("2_06iwy")
+TrailLength = 200
 
 [node name="Area3D" type="Area3D" parent="." unique_id=1069038494]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=839581270]
 shape = SubResource("SphereShape3D_si0tg")
+
+[node name="OrbitTrail3D" type="MeshInstance3D" parent="." unique_id=309544686]
+script = ExtResource("3_00kyd")
+metadata/_custom_type_script = "uid://60gypww05rx"

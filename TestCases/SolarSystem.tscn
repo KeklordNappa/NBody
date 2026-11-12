@@ -10,7 +10,7 @@ emission_enabled = true
 emission = Color(1, 0.87058824, 0.21176471, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbvb7"]
-albedo_color = Color(0.56567067, 0.394815, 0.2193777, 1)
+albedo_color = Color(0.5647059, 0.39607844, 0.21960784, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_741ve"]
 albedo_color = Color(0.89411765, 0.78431374, 0.1764706, 1)
@@ -35,16 +35,19 @@ omni_range = 36.09196
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_lbvb7")
 BodyID = "Mercury"
+TrailColor = Color(0.5647059, 0.39607844, 0.21960784, 1)
 
 [node name="Venus" parent="." unique_id=272159885 instance=ExtResource("2_n6dqv")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_741ve")
 BodyID = "Venus"
+TrailColor = Color(0.89411765, 0.78431374, 0.1764706, 1)
 
 [node name="Earth" parent="." unique_id=554596231 instance=ExtResource("2_n6dqv")]
 transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_xb5no")
 BodyID = "Earth"
+TrailColor = Color(0, 0.56078434, 1, 1)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=2041000889]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.915471, 0)
