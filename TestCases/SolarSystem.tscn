@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://ciq4ysduurbj5"]
+
+[ext_resource type="Script" uid="uid://cns1rp4ylwbum" path="res://Scripts/SystemManager.cs" id="1_uiv71"]
+[ext_resource type="PackedScene" uid="uid://dcdpdrbs1l6vq" path="res://Objects/Body.tscn" id="2_n6dqv"]
+[ext_resource type="Script" uid="uid://bnojh64i5m6ka" path="res://Scripts/UI/TimeLabel.cs" id="3_lbvb7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n6dqv"]
+albedo_color = Color(1, 1, 0.5529412, 1)
+emission_enabled = true
+emission = Color(1, 0.87058824, 0.21176471, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lbvb7"]
+albedo_color = Color(0.56567067, 0.394815, 0.2193777, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_741ve"]
+albedo_color = Color(0.89411765, 0.78431374, 0.1764706, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xb5no"]
+albedo_color = Color(0, 0.56078434, 1, 1)
+
+[node name="Sim" type="Node3D" unique_id=1020773609 node_paths=PackedStringArray("_bodies")]
+script = ExtResource("1_uiv71")
+SubStepsPerFrame = 1
+StarSystemData = "res://Data/StarSystem.json"
+_bodies = [NodePath("Sun"), NodePath("Mercury"), NodePath("Venus"), NodePath("Earth")]
+
+[node name="Sun" parent="." unique_id=261043852 instance=ExtResource("2_n6dqv")]
+material_override = SubResource("StandardMaterial3D_n6dqv")
+BodyID = "Sun"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sun" unique_id=582054910]
+omni_range = 36.09196
+
+[node name="Mercury" parent="." unique_id=819258517 instance=ExtResource("2_n6dqv")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_lbvb7")
+BodyID = "Mercury"
+
+[node name="Venus" parent="." unique_id=272159885 instance=ExtResource("2_n6dqv")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_741ve")
+BodyID = "Venus"
+
+[node name="Earth" parent="." unique_id=554596231 instance=ExtResource("2_n6dqv")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_xb5no")
+BodyID = "Earth"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2041000889]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.915471, 0)
+projection = 1
+size = 25.0
+
+[node name="Control" type="Control" parent="." unique_id=1754386902]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=509250060 node_paths=PackedStringArray("Sim")]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.24900001
+anchor_bottom = 0.106000006
+offset_right = 0.15197754
+offset_bottom = 0.31199646
+text = "Time elapsed: "
+vertical_alignment = 1
+script = ExtResource("3_lbvb7")
+Sim = NodePath("../..")

@@ -1,0 +1,6 @@
+[gd_resource type="Resource" format=3 uid="uid://22dvd20ltq0v"]
+
+[ext_resource type="Script" uid="uid://cgh6d1j4vsdsi" path="res://Objects/R_Body.cs" id="1_58ew7"]
+
+[resource]
+script = ExtResource("1_58ew7")
