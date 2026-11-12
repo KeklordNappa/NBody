@@ -95,7 +95,7 @@ public partial class Solver1PN
                     + 1.5 * (nDotvB * nDotvB)                 // Lorentz length-contraction of B gravitational field along unit vector
                     + 4.0 * _phi[a]                           // Spacetime curvature at body A caused by all other masses (contribute 4*G*m_B/r_AB + 3-body terms)
                     + _phi[b]                                 // As above but at body B (contribute 1*G*m_A/r_AB + 3-body terms)
-                    + (4.0 * G * Bodies[a].Mass) * invDist    // Remainder of nonlinear self-energy
+                    + (3.5 * G * Bodies[a].Mass) * invDist    // Remainder of nonlinear self-energy
                     + 0.5 * rDotaB;                           //Tidal / frame-acceleration distortion from third bodies acting upon body B
 
                 // Scalar coefficient along relative velocity
